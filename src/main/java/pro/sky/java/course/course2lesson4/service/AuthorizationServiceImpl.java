@@ -22,7 +22,6 @@ public class AuthorizationServiceImpl implements AuthorizationService {
         } else if (!userPassword.equals(userConfirmPassword)) {
             throw new WrongPasswordExceptionConfirm();
         }
-
         return "Успешная авторизация ";
     }
 }

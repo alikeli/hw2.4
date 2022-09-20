@@ -17,7 +17,6 @@ import pro.sky.java.course.course2lesson4.service.AuthorizationService;
 public class AuthorizationController {
     private final AuthorizationService authorizationService;
 
-
     @GetMapping
     public String authorization(@RequestParam(name = "log") String userLogin,
                                 @RequestParam(name = "pass") String userPassword,
