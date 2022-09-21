@@ -12,15 +12,15 @@ public class AuthorizationServiceImpl implements AuthorizationService {
                                 String userConfirmPassword) {
         final String regex = "(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*_)(?=\\S).{6,20}"; ;
         if (userLogin.length() > 20) {
-            throw new WrongLoginException();
+            throw new WrongLoginException("Логин слишком длинный");
         } else if (userPassword.length() > 20) {
-            throw new WrongPasswordException();
+            throw new WrongPasswordException("Пароль слишком длинный");
         } else if (!userPassword.matches(regex)) {
-            throw new WrongPasswordException();
+            throw new WrongPasswordException("Пароль не соответствует критериям");
         } else if (!userLogin.matches(regex)) {
-            throw new WrongLoginException();
+            throw new WrongLoginException("Логин не соответствует критериям");
         } else if (!userPassword.equals(userConfirmPassword)) {
-            throw new WrongPasswordExceptionConfirm();
+            throw new WrongPasswordExceptionConfirm("Пароли не совпадают");
         }
         return "Успешная авторизация ";
     }

@@ -25,9 +25,9 @@ public class AuthorizationController {
         try {
             return authorizationService.authorization(userLogin, userPassword, userConfirmPassword);
         } catch (WrongLoginException e) {
-            return "Попробуйте другой логин";
+            return "Логин не соответствует критериям";
         } catch (WrongPasswordException e) {
-            return "Попробуйте другой пароль";
+            return "Пароль не соответствует критериям";
         } catch (WrongPasswordExceptionConfirm e) {
             return "Пароли не совпадают";
         }
